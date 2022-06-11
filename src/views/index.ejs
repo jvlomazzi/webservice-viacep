@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webservice</title>
+  </head>
+  <body style="margin: auto; width: 500px;">
+    <div>
+        <h1>Webservice - Consulta Viacep</h1>
+        <form action="/consultar-cep" method="get">
+            <div style="display: flex; flex-direction:column;">
+                <label for="cep">cep</label>
+                <input type="text" name="cep" id="cep" value="<%= endereco !== null ? endereco.cep : null %>" >
+            </div>
+            <button type="submit" style="float: right;">Consultar</button>
+        </form>
+    </div>
+    <% if(endereco !== null) { %>
+        <div style="display: flex; flex-direction:column; margin-top: 50px;">
+            <% console.log(endereco) %>
+            <label for="logradouro">logradouro</label>
+            <input type="text" name="logradouro" id="logradouro" value="<%= endereco.logradouro %>">
+
+            <label for="complemento">complemento</label>
+            <input type="text" name="complemento" id="complemento" value="<%= endereco.complemento %>">
+
+            <label for="bairro">bairro</label>
+            <input type="text" name="bairro" id="bairro" value="<%= endereco.bairro %>">
+            
+            <label for="localidade">cidade</label>
+            <input type="text" name="localidade" id="localidade" value="<%= endereco.localidade %>">
+            
+            <label for="uf">Estado</label>
+            <input type="text" name="uf" id="uf" value="<%= endereco.uf %>">
+        </div>
+    <% } %>
+  </body>
+</html>
